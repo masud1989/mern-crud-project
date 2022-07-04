@@ -47,7 +47,7 @@ app.use('/api/v1', router);
 
 
 // If Undefined Route Implement
-app.use("*", (req,res) => {
+app.use('*', (req,res) => {
     res.status(404).json({status:"failed",data:"URL not Found"})
 });
 
