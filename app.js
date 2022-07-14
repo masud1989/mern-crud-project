@@ -11,11 +11,12 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cors = require('cors');
+const path= require('path');
 
 // Database Import 
 const mongoose = require('mongoose');
 app.use(express.static('client/build'));
-
+app.use(express.json());
 // Security Middleware Implement
 app.use(cors());
 app.use(helmet());
@@ -23,6 +24,7 @@ app.use(mongoSanitize());
 app.use(xss());
 app.use(hpp());
 app.use(bodyParser.json());
+
 
 //Request Rate Limit
 const limiter = rateLimit({windowMs:15*60*100, max:3000});

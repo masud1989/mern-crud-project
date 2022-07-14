@@ -14,7 +14,7 @@ exports.CreateProduct =(req, res)=> {
 }
 
 // Read All Product 
-exports.ReadProduct =(req, res)=> {
+exports.ReadProducts =(req, res)=> {
     const Query = {};
     const Projection = "ProductName ProductCode Image UnitPrice Qty TotalPrice";
     ProductsModel.find(Query, Projection, (err, data)=>{
@@ -26,6 +26,22 @@ exports.ReadProduct =(req, res)=> {
         }
     })
 }
+// exports.ReadProducts = (req, res)=> {
+//     const Query = {};
+//     const Projection = "ProductName ProductCode Image UnitPrice Qty TotalPrice";
+//     // ProductsModel.find.toArray(Query, Projection, (err, data)=>{
+//     crud.collection("products").find.toArray(Query, Projection, (err, data)=>{
+//         res.status(400).json({status:"Failed", data:err})
+//         if(err){
+//             res.status(400).json({status:"Failed", data:err})
+//         }
+//         else{
+//             res.status(200).json({status:"Update Data Success", data:data})
+//         }
+//     })
+// }
+
+
 
 // Update any Product 
 exports.UpdateProduct =(req, res)=> {
